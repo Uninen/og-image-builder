@@ -1,6 +1,6 @@
 {
     "env": {
         "GRIDSOME_UNSPLASH_ACCESS_KEY": "@unsplash-access-key",
-        "GOOGLE_ANALYTICS_ID": "@og-image-builder-analytics"
+        "GRIDSOME_GOOGLE_ANALYTICS_ID": "@og-image-builder-analytics"
     }
 }

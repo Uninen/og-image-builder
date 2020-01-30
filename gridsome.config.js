@@ -22,11 +22,11 @@ let plugins = [
   },
 ]
 
-if (GOOGLE_ANALYTICS_ID || process.env.GOOGLE_ANALYTICS_ID) {
+if (GOOGLE_ANALYTICS_ID || process.env.GRIDSOME_GOOGLE_ANALYTICS_ID) {
   plugins.push({
     use: '@gridsome/plugin-google-analytics',
     options: {
-      id: GOOGLE_ANALYTICS_ID || process.env.GOOGLE_ANALYTICS_ID,
+      id: GOOGLE_ANALYTICS_ID || process.env.GRIDSOME_GOOGLE_ANALYTICS_ID,
     },
   })
 }
