@@ -32,7 +32,7 @@ if (GOOGLE_ANALYTICS_ID || process.env.GOOGLE_ANALYTICS_ID) {
 }
 
 module.exports = {
-  siteName: 'Tulip',
+  siteName: 'Open Graph Image Builder',
   // Default titleTemplate is '%s - <siteName>'
   // Overrided here to avoid having 'My Site Name - My Site Name' on homepage
   titleTemplate: '%s',
