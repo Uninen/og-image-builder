@@ -32,10 +32,12 @@
       </div>
     </div>
 
-    <p class="mb-8">This is <span class="font-semibold">an experimental demo project</span> for making Open Graph images for your blog or a Web site with a <span class="font-semibold">serverless backend and JAMstack front</span>. <a
-        href="#"
+    <p class="mb-4">This is <span class="font-semibold">an experimental demo project</span> for making Open Graph images for your blog or a Web site with a <span class="font-semibold">serverless backend and JAMstack front</span>. <a
+        href="https://hoyci.unessa.net/2020/01/og-image-builder-part-1/"
         class="text-blue-800 underline"
       >Read more about it</a>.</p>
+
+    <p class="mb-8">Currently the best way to export the image is to use browser Developer Tools. (On Firefox right-click the image, select Take a screenshot, then select the preview div and save the image. Other browsers have similar tools.) There is also an experimental JavaScript export link top right but the quality is not very good.</p>
 
     <p class="sm:hidden bg-red-300 p-4"><strong>Dear mobile user:</strong> please note that while this app technically scales and works with mobile devices, it doesn't quite work with smallest screens. YMMV.</p>
 
@@ -110,10 +112,10 @@
 
     <p class="pt-16 pb-8 text-lg text-center">Open Graph Image Builder &copy; <strong>
         Ville Säävuori</strong> (<strong><a
-          href="https://twitter/uninen"
+          href="https://twitter.com/uninen"
           class="text-blue-700 underline"
         >@uninen</a></strong>), 2020. <a
-        href=""
+        href="https://github.com/Uninen/og-image-builder"
         class="text-blue-700 underline"
       >Source available on GitHub</a>.</p>
   </div>

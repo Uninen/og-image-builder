@@ -2,9 +2,9 @@
 
 An experimental Web app project for making social cards with JAMstack + serverless architecture. Built with Gridsome, Vue and Tailwind CSS using [Tulip starter template](https://github.com/Uninen/gridsome-starter-tulip).
 
-[Read about why and how](/) on my blog.
+[Read about why and how](https://hoyci.unessa.net/2020/01/og-image-builder-part-1/) on my blog.
 
-![Tulip starter for Gridsome preview](./static/img/social-preview.jpg)
+![Preview](./static/img/social-preview.jpg)
 
 ### Deploying
 
@@ -25,10 +25,10 @@ An experimental Web app project for making social cards with JAMstack + serverle
 
 ### Never Asked Questions
 
-- **But Why?** [I explain it in the blog post]().
-- **Isn't there (better) alternatives out there?** Yes. [I explain it in the blog post]().
-- **Is this based on some other project?** Nope. [I explain it in the blog post]().
-- **Where is the demo hosted?** On ZEIT Now. [I explain it in the blog post]().
+- **But Why?** [I explain it in the blog post](https://hoyci.unessa.net/2020/01/og-image-builder-part-1/).
+- **Isn't there (better) alternatives out there?** Yes. [I explain it in the blog post](https://hoyci.unessa.net/2020/01/og-image-builder-part-1/).
+- **Is this based on some other project?** Nope. [I explain it in the blog post](https://hoyci.unessa.net/2020/01/og-image-builder-part-1/).
+- **Where is the demo hosted?** On ZEIT Now. [I explain it in the blog post](https://hoyci.unessa.net/2020/01/og-image-builder-part-1/).
 
 ### Contributing and Thanks
 
