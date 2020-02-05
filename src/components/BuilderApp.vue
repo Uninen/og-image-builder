@@ -163,7 +163,7 @@ import UnsplashSearch from './UnsplashSearch'
 
 export default {
   components: {
-    UnsplashSearch
+    UnsplashSearch,
   },
   data: function() {
     return {
@@ -178,7 +178,7 @@ export default {
           name: 'Layer 1',
           html: 'OG:Image Builder',
           css:
-            'flex items-center justify-center text-5.5xl h-full font-raleway font-black text-white uppercase -m-8'
+            'flex items-center justify-center text-5.5xl h-full font-raleway font-black text-white uppercase -m-8',
         },
         {
           id: 1,
@@ -187,16 +187,17 @@ export default {
           html:
             'Add background from <b>Unsplash</b>,<br>style with <b>Tailwind</b> CSS 🎉',
           css:
-            'absolute inset-x-0 bottom-0 text-3xl font-opensans font-bold text-center text-white mb-20'
+            'absolute inset-x-0 bottom-0 text-3xl font-opensans font-bold text-center text-white mb-20',
         },
         {
           id: 2,
           visible: false,
           name: 'Layer 3',
           html: '<i class="fab fa-vuejs fa-10x"></i>',
-          css: 'text-green-500 flex items-center justify-center h-full text-2xl'
-        }
-      ]
+          css:
+            'text-green-500 flex items-center justify-center h-full text-2xl',
+        },
+      ],
     }
   },
   computed: {
@@ -207,7 +208,7 @@ export default {
         obj.backgroundSize = 'cover'
       }
       return obj
-    }
+    },
   },
 
   methods: {
@@ -216,7 +217,7 @@ export default {
       // be used as a main rendering tool. It does, however, work in basic situations.
       html2canvas(document.getElementById('cardholder'), {
         allowTaint: true,
-        useCORS: true
+        useCORS: true,
       }).then(function(canvas) {
         let image = canvas
           .toDataURL('image/png', 1.0)
@@ -242,7 +243,7 @@ export default {
       Vue.nextTick(function() {
         document.getElementById('searchinput').focus()
       })
-    }
-  }
+    },
+  },
 }
 </script>

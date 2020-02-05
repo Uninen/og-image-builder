@@ -82,7 +82,7 @@ query {
 <script>
 export default {
   metaInfo: {
-    title: 'Style Guide'
-  }
+    title: 'Style Guide',
+  },
 }
 </script>
