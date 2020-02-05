@@ -3,28 +3,28 @@ module.exports = {
     extend: {
       fontFamily: {
         raleway: ['Raleway', 'sans-serif'],
-        opensans: ['Open Sans', 'sans-serif'],
+        opensans: ['Open Sans', 'sans-serif']
       },
       fontSize: {
         '5.5xl': '3.5rem',
         '7xl': '5rem',
         '8xl': '7rem',
         '9xl': '9rem',
-        '10xl': '11rem',
+        '10xl': '11rem'
       },
       margin: {
-        '28': '7rem',
-      },
+        '28': '7rem'
+      }
     },
     aspectRatio: {
-      '16/9': [16, 9],
-    },
+      '16/9': [16, 9]
+    }
   },
   variants: {
-    aspectRatio: ['responsive'],
+    aspectRatio: ['responsive']
   },
   plugins: [
     require('tailwindcss-aspect-ratio')(),
-    require('@tailwindcss/custom-forms'),
-  ],
+    require('@tailwindcss/custom-forms')
+  ]
 }

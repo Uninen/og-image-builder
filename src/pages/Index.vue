@@ -18,18 +18,18 @@ query {
 export default {
   components: {
     // We load this asynchronously so Gridsome wont try to render it build time
-    BuilderApp: () => import('@/components/BuilderApp'),
+    BuilderApp: () => import('@/components/BuilderApp')
   },
   data: function() {
     return {
-      loadApp: false,
+      loadApp: false
     }
   },
   metaInfo: {
-    title: 'Open Graph Image Builder',
+    title: 'Open Graph Image Builder'
   },
   mounted() {
     this.loadApp = true
-  },
+  }
 }
 </script>
