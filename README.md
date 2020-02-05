@@ -36,4 +36,10 @@ First Big Thank You to Gridsome, Vue and Tailwind CSS teams for making these awe
 
 All contributions to this project are welcome as long as you follow [our code of conduct](CODE_OF_CONDUCT.md).
 
-[Follow me on Twitter](https://twitter.com/uninen)!
+[Follow @uninen on Twitter](https://twitter.com/uninen)!
+
+### Support Open Source development
+
+If you want to support my open source on [GitHub](https://github.com/Uninen) and [GitLab](https://gitlab.com/uninen), you can buy me a 🍺 or ☕️ :)
+
+<a href="https://www.buymeacoffee.com/Uninen" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
