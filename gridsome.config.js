@@ -17,17 +17,17 @@ let plugins = [
       presetEnvConfig: {},
       shouldPurge: false,
       shouldImport: true,
-      shouldTimeTravel: true,
-    },
-  },
+      shouldTimeTravel: true
+    }
+  }
 ]
 
 if (GOOGLE_ANALYTICS_ID || process.env.GRIDSOME_GOOGLE_ANALYTICS_ID) {
   plugins.push({
     use: '@gridsome/plugin-google-analytics',
     options: {
-      id: GOOGLE_ANALYTICS_ID || process.env.GRIDSOME_GOOGLE_ANALYTICS_ID,
-    },
+      id: GOOGLE_ANALYTICS_ID || process.env.GRIDSOME_GOOGLE_ANALYTICS_ID
+    }
   })
 }
 
@@ -38,6 +38,6 @@ module.exports = {
   titleTemplate: '%s',
   // Default is './src/favicon.png'
   icon: './src/assets/img/favicon.png',
-  plugins,
+  plugins
 }
 // All configuration options: https://gridsome.org/docs/config
