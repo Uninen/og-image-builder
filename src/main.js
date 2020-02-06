@@ -1,10 +1,6 @@
-// This is the main.js file. Import global CSS and scripts here.
-// The Client API can be used here. Learn more: https://gridsome.org/docs/client-api
-
 import DefaultLayout from './layouts/Default.vue'
 
 export default function(Vue, { router, head, isClient }) {
-  // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 
   head.htmlAttrs = { lang: 'en' }
@@ -20,7 +16,7 @@ export default function(Vue, { router, head, isClient }) {
   // Scripts
   head.script.push({
     // This is my personal FA5 kit, please don't use this in other projects as it will eat my
-    // monthly pageviews and I'll be forced to change the kit, thanks!
+    // monthly pageviews and I'll be forced to change the kit, thanks! // @Uninen
     src: 'https://kit.fontawesome.com/092bd4c80e.js',
     crossorigin: 'anonymous',
     body: true,
