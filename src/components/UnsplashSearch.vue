@@ -124,7 +124,6 @@ export default {
           },
         })
         .then(function(response) {
-          console.log('Response: ', response)
           me.searchResults = response.data
           me.status = 'idle'
         })

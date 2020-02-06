@@ -1,7 +1,5 @@
 <template>
   <Layout class="mb-8 mt-6">
-    <!-- Replace everything inside this Layout with your own content -->
-    <!-- The main container CSS classes are in `src/layouts/Default.vue` -->
     <h1 class="block text-4xl font-bold">
       <i class="far fa-book"></i> Style Guide
     </h1>
