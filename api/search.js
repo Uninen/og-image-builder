@@ -16,7 +16,6 @@ module.exports = (req, res) => {
       },
     })
     .then(function(response) {
-      console.log('Response: ', response)
       res.status(200).json(response.data)
     })
 }

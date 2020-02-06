@@ -17,11 +17,11 @@ An experimental Web app project for making social cards with JAMstack + serverle
 ### Some ideas for improvements
 
 - Separate text position and styling (add easier position controls)
-- Add ability to use plain color backgrounds instead of images
 - Add ability to save and distribute (allow linking to) designs
 - Implement image rendering with Puppeteer or similar proper backend tool
 - Add an UI for adding layers
 - Add possibility of using Markdown instead of HTML
+- ~~Add ability to use plain color backgrounds instead of images~~ (done in 0.2.0)
 
 ### Never Asked Questions
 
