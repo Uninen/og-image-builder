@@ -17,11 +17,11 @@ An experimental Web app project for making social cards with JAMstack + serverle
 ### Some ideas for improvements
 
 - Separate text position and styling (add easier position controls)
-- Add ability to use plain color backgrounds instead of images
 - Add ability to save and distribute (allow linking to) designs
 - Implement image rendering with Puppeteer or similar proper backend tool
 - Add an UI for adding layers
 - Add possibility of using Markdown instead of HTML
+- ~~Add ability to use plain color backgrounds instead of images~~ (done in 0.2.0)
 
 ### Never Asked Questions
 
@@ -32,8 +32,14 @@ An experimental Web app project for making social cards with JAMstack + serverle
 
 ### Contributing and Thanks
 
-First Big Thank You to Gridsome, Vue and Tailwind CSS teams for making these awesome open source tools. Thank You also to ZEIT Now for giving us a great service for developing and hosting our projects -- for free.
+First Big Thank You to Gridsome, Vue and Tailwind CSS teams for making these awesome open source tools. Thank You also to ZEIT Now for giving us a great service for developing and hosting our projects -- for free. Find a [list of contributors in the AUTHORS-file](./AUTHORS.md).
 
 All contributions to this project are welcome as long as you follow [our code of conduct](CODE_OF_CONDUCT.md).
 
-[Follow me on Twitter](https://twitter.com/uninen)!
+### Support Open Source development
+
+[Follow @uninen on Twitter](https://twitter.com/uninen)!
+
+If you want to support my open source on [GitHub](https://github.com/Uninen) and [GitLab](https://gitlab.com/uninen), you can buy me a 🍺 or ☕️ :)
+
+<a href="https://www.buymeacoffee.com/Uninen" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>

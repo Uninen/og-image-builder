@@ -103,7 +103,7 @@ export default {
       searchTerm: '',
       searchResults: null,
       status: 'idle',
-      currentPage: 1
+      currentPage: 1,
     }
   },
 
@@ -120,11 +120,10 @@ export default {
         .get('/api/search', {
           params: {
             query: me.searchTerm,
-            page: me.currentPage
-          }
+            page: me.currentPage,
+          },
         })
         .then(function(response) {
-          console.log('Response: ', response)
           me.searchResults = response.data
           me.status = 'idle'
         })
@@ -154,21 +153,21 @@ export default {
       // As we can't track browser screenshots, we'll send the ping here.
       axios.get('/api/track', {
         params: {
-          photo: photo.id
-        }
+          photo: photo.id,
+        },
       })
     },
 
     closeWindow() {
       this.$emit('close-window')
-    }
+    },
   },
 
   created() {
     this.debouncedSearch = debounce(this.searchUnsplash, 500, {
       leading: true,
-      trailing: true
+      trailing: true,
     })
-  }
+  },
 }
 </script>
