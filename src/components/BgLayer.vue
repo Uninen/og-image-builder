@@ -36,7 +36,11 @@
 
     <label class="block mt-4">
       <span class="font-bold text-gray-700">BG Color</span>
-      <input class="form-input mt-1 block w-full" v-model="color" />
+      <input
+        type="color"
+        class="form-input mt-1 block w-full"
+        v-model="color"
+      />
     </label>
 
     <unsplash-search
