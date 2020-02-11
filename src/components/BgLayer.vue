@@ -16,15 +16,20 @@
     <label class="block mt-4">
       <span class="font-bold text-gray-700">Image URL</span>
       <div class="text-sm text-gray-600" v-if="imageIsUnsplash">
-        Currently selected image by
-        <span class="font-bold text-gray-700">{{ unsplashImage.author }}</span
-        >.
+        Currently selected photo by
         <a
-          class="underline text-blue-700"
-          :href="unsplashImage.url"
+          class="underline text-gray-700"
+          :href="unsplashImage.authorUrl"
           target="_blank"
-          >View on Unsplash <i class="far fa-external-link-alt"></i
+          >{{ unsplashImage.author }} <i class="far fa-external-link-alt"></i
         ></a>
+        on
+        <a
+          class="underline text-gray-700"
+          :href="unsplashImage.unsplashUrl"
+          target="_blank"
+          >Unsplash <i class="far fa-external-link-alt"></i></a
+        >.
       </div>
       <input class="form-input mt-1 block w-full" v-model="url" />
     </label>
@@ -45,6 +50,9 @@
 import Vue from 'vue'
 import UnsplashSearch from './UnsplashSearch'
 
+const UTM_PARAMS =
+  '?utm_source=Open%20Graph%20Image%20Builder&utm_medium=referral'
+
 export default {
   name: 'BgLayer',
   components: {
@@ -60,7 +68,8 @@ export default {
       searchOpen: false,
       unsplashImage: {
         author: 'Melanie Magdalena',
-        url: 'https://unsplash.com/photos/VdFkSO3uePI',
+        authorUrl: 'https://unsplash.com/@m2creates' + UTM_PARAMS,
+        unsplashUrl: 'https://unsplash.com/' + UTM_PARAMS,
       },
     }
   },
@@ -71,10 +80,10 @@ export default {
   },
   methods: {
     selectPhoto(payload) {
-      console.log('selectedPhoto', payload)
       this.unsplashImage = {
         author: payload.user.name,
-        url: payload.links.html,
+        authorUrl: payload.user.links.html + UTM_PARAMS,
+        unsplashUrl: 'https://unsplash.com/' + UTM_PARAMS,
       }
       this.url = payload.urls.raw + '&auto=format&fit=crop&w=1280&h=720&q=85'
       this.closeSearchWindow()
