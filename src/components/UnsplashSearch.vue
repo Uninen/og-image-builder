@@ -38,7 +38,8 @@
       <input
         id="searchinput"
         class="form-input w-full"
-        v-on:keyup="triggerSearch"
+        @keyup="triggerSearch"
+        @keyup.esc="closeWindow"
         v-model="searchTerm"
       />
       <button
@@ -164,10 +165,25 @@ export default {
   },
 
   created() {
+    let me = this
+
     this.debouncedSearch = debounce(this.searchUnsplash, 500, {
       leading: true,
       trailing: true,
     })
+
+    document.onkeyup = function(evt) {
+      evt = evt || window.event
+      let isEscape = false
+      if ('key' in evt) {
+        isEscape = evt.key === 'Escape' || evt.key === 'Esc'
+      } else {
+        isEscape = evt.keyCode === 27
+      }
+      if (isEscape) {
+        me.closeWindow()
+      }
+    }
   },
 }
 </script>

@@ -1,5 +1,15 @@
 # Changes
 
+## 2020-02-11 - v0.2.1
+
+Small usability tweaks.
+
+- **Enhancement**: Added basic security headers, added note to readme about non ZEIT Now deployments.
+- **Enhancement**: Added (browser native) color picker for background color.
+- **Enhancement**: Close background image search window with ESC key.
+- **Enhancement**: Prevent underlying page scroll when the search window is open.
+- **Bugfix**: Unsplash links now comply to [their API guidelines](https://help.unsplash.com/en/articles/2511245-unsplash-api-guidelines). (Refs #1)
+
 ## 2020-02-06 - v0.2.0
 
 This release includes some new functionality, lots of refactorings, and our first community contribution ❤️

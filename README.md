@@ -14,6 +14,8 @@ An experimental Web app project for making social cards with JAMstack + serverle
 1. Copy `.env.example` as `.env` and get yourself an API key for Unsplash API to be able to use the Unsplash search. You also need to add this as a secret to ZEIT Now to be able to use it as an environment variable in production.
 1. Deploy on ZEIT Now
 
+Note: if you use some other hosting than ZEIT Now, implement `X-Content-Type-Options`, `X-Frame-Options`, `X-XSS-Protection` headers yourself (see examples in `now.json`).
+
 ### Some ideas for improvements
 
 - Separate text position and styling (add easier position controls)

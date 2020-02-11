@@ -5,5 +5,5 @@ src/.temp
 node_modules
 dist
 .env
-
+.python-version
 .now
