@@ -2,6 +2,7 @@
 
 ## Next
 
+- **Enhancement**: Close background image search window with ESC key
 - **Enhancement**: Prevent underlying page scroll when the search window is open
 - **Bugfix**: Unsplash links now comply to [their API guidelines](https://help.unsplash.com/en/articles/2511245-unsplash-api-guidelines). (Refs #1)
 
