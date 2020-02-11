@@ -103,8 +103,13 @@
     </layer-container>
 
     <p class="pt-16 pb-8 text-lg text-center">
-      Open Graph Image Builder v{{ version }} &copy;
-      <strong> Ville Säävuori</strong> (<strong
+      Open Graph Image Builder
+      <a
+        href="https://github.com/Uninen/og-image-builder/releases"
+        class="underline"
+        >v{{ version }}</a
+      >
+      &copy; <strong> Ville Säävuori</strong> (<strong
         ><a href="https://twitter.com/uninen" class="text-blue-700 underline"
           >@uninen</a
         ></strong
