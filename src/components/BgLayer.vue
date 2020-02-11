@@ -91,10 +91,17 @@ export default {
 
     closeSearchWindow() {
       this.searchOpen = false
+      let body = document.body
+      body.classList.remove('overflow-hidden')
     },
 
     openSearchWindow() {
       this.searchOpen = true
+      // Prevent underlying page scroll when the search window is open
+      window.scrollTo({ top: 0 })
+      let body = document.body
+      body.classList.add('overflow-hidden')
+
       Vue.nextTick(function() {
         document.getElementById('searchinput').focus()
       })
