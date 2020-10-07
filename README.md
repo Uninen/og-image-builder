@@ -9,12 +9,11 @@ An experimental Web app project for making social cards with JAMstack + serverle
 ### Deploying
 
 1. Fork this project
-1. Run `yarn` to install dependencies and `yarn develop` to start the development server
-1. Tweak your fonts, Tailwind config and meta data according to your needs. Also replace or remove the included Font Awesome kit as it's there only for testing convenience.
-1. Copy `.env.example` as `.env` and get yourself an API key for Unsplash API to be able to use the Unsplash search. You also need to add this as a secret to ZEIT Now to be able to use it as an environment variable in production.
-1. Deploy on ZEIT Now
+1. Tweak your fonts, Tailwind config and meta data according to your needs.
+1. Copy `.env.example` as `.env` and get yourself an API key for Unsplash API to be able to use the Unsplash search. You also need to add this as a secret to Vercel to be able to use it as an environment variable in production.
+1. Deploy on Vercel
 
-Note: if you use some other hosting than ZEIT Now, implement `X-Content-Type-Options`, `X-Frame-Options`, `X-XSS-Protection` headers yourself (see examples in `now.json`).
+Note: if you use some other hosting than Vercel, implement `X-Content-Type-Options`, `X-Frame-Options`, `X-XSS-Protection` headers yourself (see examples in `now.json`).
 
 ### Some ideas for improvements
 

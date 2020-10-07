@@ -1,4 +1,15 @@
+/* eslint-disable */
 module.exports = {
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+  },
+  purge: [
+    './src/**/*.html',
+    './src/**/*.vue',
+    './src/**/*.ts',
+    './src/**/*.js',
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -20,11 +31,9 @@ module.exports = {
       '16/9': [16, 9],
     },
   },
-  variants: {
-    aspectRatio: ['responsive'],
-  },
+  variants: {},
   plugins: [
-    require('tailwindcss-aspect-ratio')(),
+    require('tailwindcss-aspect-ratio'),
     require('@tailwindcss/custom-forms'),
   ],
 }

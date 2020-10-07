@@ -1,16 +1,16 @@
 <template>
   <div>
-    <div class="flex flex-wrap items-center w-full justify-between mt-6 mb-4">
+    <div class="flex flex-wrap items-center justify-between w-full mt-6 mb-4">
       <h1 class="block text-4xl font-bold">
         <i class="far fa-sliders-v-square"></i> Open Graph Image Builder
       </h1>
       <div>
         <span class="text-right">
-          <g-link
+          <router-link
             class="text-blue-800 text-md hover:underline"
             to="/styleguide/"
             >Style Guide <i class="fab fa-css3"></i
-          ></g-link>
+          ></router-link>
         </span>
         &nbsp;
 
@@ -19,7 +19,7 @@
             href="https://tailwindcss.com/docs/utility-first"
             class="text-blue-800 text-md hover:underline"
             target="_blank"
-            >Tailwind <i class="far fa-external-link-alt"></i></a
+            >Tailwind <i class="fas fa-external-link-alt"></i></a
         ></span>
         &nbsp;
 
@@ -28,7 +28,7 @@
             href="https://fontawesome.com/icons?d=gallery"
             class="text-blue-800 text-md hover:underline"
             target="_blank"
-            >FA5 <i class="far fa-external-link-alt"></i></a
+            >FA5 <i class="fas fa-external-link-alt"></i></a
         ></span>
         &nbsp;
 
@@ -39,7 +39,7 @@
             target="_blank"
             title="Experimental"
             @click.prevent="downloadPng"
-            ><i class="far fa-download"></i></a
+            ><i class="fas fa-download"></i></a
         ></span>
       </div>
     </div>
@@ -64,16 +64,16 @@
       the quality is not very good.
     </p>
 
-    <p class="sm:hidden bg-red-300 p-4">
+    <p class="p-4 bg-red-300 sm:hidden">
       <strong>Dear mobile user:</strong> please note that while this app
       technically scales and works with mobile devices, it doesn't quite work
       with smallest screens. YMMV.
     </p>
 
-    <div class="border border-gray-600 max-w-2xl mx-auto mt-4 mb-4">
+    <div class="max-w-2xl mx-auto mt-4 mb-4 border border-gray-600">
       <div
         id="cardholder"
-        class="aspect-ratio-16/9 flex flex-1 m-h-64 items-stretch relative overflow-hidden"
+        class="relative flex items-stretch flex-1 overflow-hidden aspect-ratio-16/9 m-h-64"
         v-bind:style="bgStyles"
       >
         <div
@@ -90,14 +90,14 @@
       </div>
     </div>
 
-    <layer-container class="mt-4 p-4 rounded border border-gray-400"
+    <layer-container class="p-4 mt-4 border border-gray-400 rounded"
       ><bg-layer v-on:stylechange="changeBgStyles"></bg-layer>
     </layer-container>
 
     <layer-container
       v-for="layer in layers"
       :key="layer.id"
-      class="mt-4 p-4 rounded border border-gray-400"
+      class="p-4 mt-4 border border-gray-400 rounded"
       :layer="layer"
     >
     </layer-container>
@@ -122,22 +122,21 @@
     </p>
   </div>
 </template>
-<script>
-import Vue from 'vue'
-import clone from 'lodash-es/clone'
+<script lang="ts">
+import { defineComponent } from 'vue'
 import html2canvas from 'html2canvas'
+import LayerContainer from './LayerContainer.vue'
+import BgLayer from './BgLayer.vue'
+import pkg from '../../package.json'
 
-import LayerContainer from './LayerContainer'
-import BgLayer from './BgLayer'
-
-export default {
+export default defineComponent({
   components: {
     BgLayer,
     LayerContainer,
   },
-  data: function() {
+  data() {
     return {
-      version: '0.2.1',
+      version: pkg.version,
       bgURL: '',
       bgStyles: {},
       layers: [
@@ -174,23 +173,26 @@ export default {
     downloadPng() {
       // Note: html2canvas has some serious limitations in rendering and it should not
       // be used as a main rendering tool. It does, however, work in basic situations.
-      html2canvas(document.getElementById('cardholder'), {
-        allowTaint: true,
-        useCORS: true,
-      }).then(function(canvas) {
-        let image = canvas
-          .toDataURL('image/png', 1.0)
-          .replace('image/png', 'image/octet-stream')
-        var link = document.createElement('a')
-        link.download = 'social-card.png'
-        link.href = image
-        link.click()
-      })
+      const cardHolder = document.getElementById('cardholder')
+      if (cardHolder) {
+        html2canvas(cardHolder, {
+          allowTaint: true,
+          useCORS: true,
+        }).then(function(canvas) {
+          const image = canvas
+            .toDataURL('image/png', 1.0)
+            .replace('image/png', 'image/octet-stream')
+          var link = document.createElement('a')
+          link.download = 'social-card.png'
+          link.href = image
+          link.click()
+        })
+      }
     },
 
-    changeBgStyles(styleObj) {
+    changeBgStyles(styleObj: any) {
       this.bgStyles = styleObj
     },
   },
-}
+})
 </script>

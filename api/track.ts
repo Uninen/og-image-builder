@@ -9,7 +9,7 @@ module.exports = (req, res) => {
         Authorization: `Client-ID ${process.env.GRIDSOME_UNSPLASH_ACCESS_KEY}`,
       },
     })
-    .then(function(response) {
+    .then(function() {
       res.status(200).json({ success: true })
     })
 }

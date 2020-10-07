@@ -1,6 +1,6 @@
-html {
-  font-size: 18px;
-}
+@tailwind base;
+
+@tailwind components;
 
 h2,
 h3,
@@ -38,14 +38,6 @@ b {
   @apply font-bold;
 }
 
-a {
-  @apply underline text-indigo-700;
-}
-
-a:visited {
-  @apply text-black;
-}
-
 code {
   @apply bg-gray-200 text-sm px-1;
 }
@@ -57,3 +49,5 @@ dt {
 dd {
   @apply mb-4;
 }
+
+@tailwind utilities;

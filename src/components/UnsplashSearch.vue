@@ -1,6 +1,6 @@
 <template>
-  <div class="absolute inset-0 bg-gray-100 py-2 px-8">
-    <div class="flex items-start w-full justify-between mt-6">
+  <div class="absolute inset-0 px-8 py-2 bg-gray-100">
+    <div class="flex items-start justify-between w-full mt-6">
       <h2 class="inline-block text-2xl font-bold">
         <i class="fas fa-search"></i> Search Unsplash
       </h2>
@@ -8,7 +8,7 @@
         <span class="text-right"
           ><a
             href="#"
-            class="text-blue-700 text-xl hover:text-red-700"
+            class="text-xl text-blue-700 hover:text-red-700"
             target="_blank"
             title="Close search"
             @click.prevent="closeWindow"
@@ -34,10 +34,10 @@
       >.
     </p>
 
-    <label class="block mt-4 inline-flex items-center w-1/2">
+    <label class="inline-flex items-center block w-1/2 mt-4">
       <input
         id="searchinput"
-        class="form-input w-full"
+        class="w-full form-input"
         @keyup="triggerSearch"
         @keyup.esc="closeWindow"
         v-model="searchTerm"
@@ -45,36 +45,36 @@
       <button
         v-if="status === 'idle'"
         @click="searchUnsplash"
-        class="ml-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
+        class="px-4 py-2 ml-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-400"
       >
         Search&nbsp;Unsplash
       </button>
       <button
         v-else
-        class="ml-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
+        class="px-4 py-2 ml-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-400"
       >
         Searching...
       </button>
     </label>
 
     <div v-if="searchResults && searchResults.total > 0" class="w-full">
-      <h4 class="text-2xl font-bold mt-6">
+      <h4 class="mt-6 text-2xl font-bold">
         Results ({{ searchResults.total }})
       </h4>
 
       <div class="w-full">
         <button
           @click="decrPage"
-          class="mr-2 mt-4 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
+          class="px-4 py-2 mt-4 mr-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-400"
         >
           &larr; previous
         </button>
 
-        <input class="form-input inline-block w-32" v-model="currentPage" />
+        <input class="inline-block w-32 form-input" v-model="currentPage" />
 
         <button
           @click="incrPage"
-          class="ml-2 mt-4 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
+          class="px-4 py-2 mt-4 ml-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-400"
         >
           next &rarr;
         </button>
@@ -95,11 +95,12 @@
   </div>
 </template>
 <script>
+import { defineComponent } from 'vue'
 import axios from 'axios'
-import debounce from 'lodash-es/debounce'
+import { debounce } from 'lodash-es'
 
-export default {
-  data: function() {
+export default defineComponent({
+  data() {
     return {
       searchTerm: '',
       searchResults: null,
@@ -115,6 +116,7 @@ export default {
       }
     },
     searchUnsplash() {
+      // @ts-ignore
       let me = this
       me.status = 'searching'
       axios
@@ -146,7 +148,6 @@ export default {
     },
 
     selectPhoto(photo) {
-      let me = this
       this.$emit('photo-selected', photo)
 
       // As per Unsplash API guides, we need to ping them for each
@@ -165,6 +166,7 @@ export default {
   },
 
   created() {
+    // @ts-ignore
     let me = this
 
     this.debouncedSearch = debounce(this.searchUnsplash, 500, {
@@ -185,5 +187,5 @@ export default {
       }
     }
   },
-}
+})
 </script>

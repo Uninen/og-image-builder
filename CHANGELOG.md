@@ -1,5 +1,9 @@
 # Changes
 
+## 2020-02-11 - v0.3.0
+
+- **Full rewrite**: converted project from Vue 2 to Vue 3 and from Gridsome to Vue CLI. Also converted from JavaScript to TypeScript.
+
 ## 2020-02-11 - v0.2.1
 
 Small usability tweaks.
