@@ -1,24 +1,23 @@
 # Open Graph Image Builder
 
-An experimental Web app project for making social cards with JAMstack + serverless architecture. Built with Gridsome, Vue and Tailwind CSS using [Tulip starter template](https://github.com/Uninen/gridsome-starter-tulip).
+An experimental Web app project for making social cards with JAMstack + serverless architecture. Built with Vue 3 and Tailwind CSS.
 
 [Read about why and how](https://hoyci.unessa.net/2020/01/og-image-builder-part-1/) on my blog.
 
-![Preview](./static/img/social-preview.jpg)
+![Preview](./src/assets/img/social-preview.jpg)
 
 ### Deploying
 
 1. Fork this project
-1. Run `yarn` to install dependencies and `yarn develop` to start the development server
-1. Tweak your fonts, Tailwind config and meta data according to your needs. Also replace or remove the included Font Awesome kit as it's there only for testing convenience.
-1. Copy `.env.example` as `.env` and get yourself an API key for Unsplash API to be able to use the Unsplash search. You also need to add this as a secret to ZEIT Now to be able to use it as an environment variable in production.
-1. Deploy on ZEIT Now
+1. Tweak your fonts, Tailwind config and meta data according to your needs.
+1. Copy `.env.example` as `.env` and get yourself an API key for Unsplash API to be able to use the Unsplash search. You also need to add this as a secret to Vercel to be able to use it as an environment variable in production.
+1. Deploy on Vercel
 
-Note: if you use some other hosting than ZEIT Now, implement `X-Content-Type-Options`, `X-Frame-Options`, `X-XSS-Protection` headers yourself (see examples in `now.json`).
+Note: if you use some other hosting than Vercel, implement `X-Content-Type-Options`, `X-Frame-Options`, `X-XSS-Protection` headers yourself (see examples in `now.json`).
 
 ### Some ideas for improvements
 
-- Separate text position and styling (add easier position controls)
+- Separate text position and styling (add better position controls)
 - Add ability to save and distribute (allow linking to) designs
 - Implement image rendering with Puppeteer or similar proper backend tool
 - Add an UI for adding layers
@@ -40,7 +39,7 @@ All contributions to this project are welcome as long as you follow [our code of
 
 ### Support Open Source development
 
-[Follow @uninen on Twitter](https://twitter.com/uninen)!
+**Follow** [**@uninen** on Twitter](https://twitter.com/uninen)!
 
 If you want to support my open source on [GitHub](https://github.com/Uninen) and [GitLab](https://gitlab.com/uninen), you can buy me a 🍺 or ☕️ :)
 

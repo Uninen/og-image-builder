@@ -5,14 +5,15 @@
     </slot>
   </div>
 </template>
-<script>
-import TextLayer from './TextLayer'
+<script lang="ts">
+import { defineComponent } from 'vue'
+import TextLayer from './TextLayer.vue'
 
-export default {
+export default defineComponent({
   name: 'ImageLayer',
   props: ['layer'],
   components: {
     TextLayer,
   },
-}
+})
 </script>

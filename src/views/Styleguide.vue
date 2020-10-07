@@ -1,5 +1,5 @@
 <template>
-  <Layout class="mb-8 mt-6">
+  <div class="mb-8 mt-6">
     <h1 class="block text-4xl font-bold">
       <i class="far fa-book"></i> Style Guide
     </h1>
@@ -65,22 +65,8 @@
       >
     </p>
 
-    <g-link to="/" class="text-blue-700 underline">&larr; Back Home</g-link>
-  </Layout>
+    <router-link to="/" class="text-blue-700 underline"
+      >&larr; Back Home</router-link
+    >
+  </div>
 </template>
-
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
-
-<script>
-export default {
-  metaInfo: {
-    title: 'Style Guide',
-  },
-}
-</script>
