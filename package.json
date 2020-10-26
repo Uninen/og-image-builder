@@ -17,7 +17,7 @@
     "core-js": "^3.6.5",
     "html2canvas": "^1.0.0-rc.7",
     "lodash-es": "^4.17.15",
-    "tailwindcss": "^1.8.11",
+    "tailwindcss": "^1.9.6",
     "tailwindcss-aspect-ratio": "^3.0.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0"
