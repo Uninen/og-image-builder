@@ -26,7 +26,7 @@
     "@babel/plugin-proposal-optional-chaining": "^7.11.0",
     "@cypress/code-coverage": "^3.8.1",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
-    "@types/lodash-es": "^4.17.3",
+    "@types/lodash-es": "^4.17.4",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
     "@vue/cli-plugin-babel": "~4.5.7",
