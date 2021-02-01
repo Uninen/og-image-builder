@@ -41,7 +41,7 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-istanbul": "^6.0.0",
     "check-code-coverage": "^1.10.0",
-    "eslint": "^7.10.0",
+    "eslint": "^7.19.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
