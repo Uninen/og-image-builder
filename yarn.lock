@@ -1126,7 +1126,7 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fullhuman/postcss-purgecss@^2.1.2", "@fullhuman/postcss-purgecss@^2.3.0":
+"@fullhuman/postcss-purgecss@^2.1.2":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@fullhuman/postcss-purgecss/-/postcss-purgecss-2.3.0.tgz#50a954757ec78696615d3e118e3fee2d9291882e"
   integrity sha512-qnKm5dIOyPGJ70kPZ5jiz0I9foVOic0j+cOzNDoo8KoCf6HjicIZ99UfO2OmE7vCYSKAAepEwJtNzpiiZAh9xw==
@@ -10187,7 +10187,7 @@ tailwindcss-aspect-ratio@^3.0.0:
   dependencies:
     lodash "^4.17.15"
 
-tailwindcss@^1.8.11, tailwindcss@^1.8.9:
+tailwindcss@^1.8.11:
   version "1.8.11"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.8.11.tgz#c8be430fe5d1685a20acc3409b7ffb9288e8b1b6"
   integrity sha512-k7Mam6s+rmr79z0eil56tdGH7cvTlzWfijlO5qDLlpybDqPwzYRGQ/1CksE/H192oeAem1bFy9IDJL97q7lSag==
@@ -10822,13 +10822,10 @@ vm-browserify@^1.0.0, vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-cli-plugin-tailwind@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/vue-cli-plugin-tailwind/-/vue-cli-plugin-tailwind-1.5.0.tgz#d32eced1eb77ce9946ee861f1883d5c9ba3bef88"
-  integrity sha512-uLzAhudKcioOerL/n/17YDonH9kHNJy1xrSYWIdIQUwq7804Rj/oIufWTDcbdtib0kQ7TIPAwEM0xo+XqnPwIg==
-  dependencies:
-    "@fullhuman/postcss-purgecss" "^2.3.0"
-    tailwindcss "^1.8.9"
+vue-cli-plugin-tailwind@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/vue-cli-plugin-tailwind/-/vue-cli-plugin-tailwind-3.0.0.tgz#2436e781e919acab9539934549999baf33e0a099"
+  integrity sha512-bUWjfwGtJCeBU7pL4lD86RC+HsJAmAlYqr8e65NGC3q/ZBzC9KQs1Iy/vTyfDTnB7ZJm3huB+1a/m+17fdMZ8A==
 
 vue-eslint-parser@^7.0.0, vue-eslint-parser@^7.1.0:
   version "7.1.0"
