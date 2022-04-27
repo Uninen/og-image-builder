@@ -4,20 +4,25 @@ module.exports = {
     node: true,
   },
   extends: [
-    'plugin:vue/vue3-essential',
-    '@vue/standard',
+    'plugin:vue/vue3-recommended',
     '@vue/typescript/recommended',
+    'plugin:security/recommended',
+    'prettier',
+    './.eslintrc-auto-import.json',
   ],
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
   },
   rules: {
+    'no-var': 'error',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'space-before-function-paren': ['error', 'never'],
     'comma-dangle': ['error', 'only-multiline'],
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/ban-ts-comment': 'off',
-    'no-non-null-assertion': 'off',
+  },
+  globals: {
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly',
   },
 }

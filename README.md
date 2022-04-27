@@ -4,7 +4,7 @@ An experimental Web app project for making social cards with JAMstack + serverle
 
 [Read about why and how](https://hoyci.unessa.net/2020/01/og-image-builder-part-1/) on my blog.
 
-![Preview](./src/assets/img/social-preview.jpg)
+![Preview](./src/assets/img/social-preview.webp)
 
 ### Deploying
 

@@ -1,39 +1,33 @@
-/* eslint-disable */
+const plugin = require('tailwindcss/plugin')
+// const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
-  purge: [
-    './src/**/*.html',
-    './src/**/*.vue',
-    './src/**/*.ts',
-    './src/**/*.js',
-  ],
-  theme: {
-    extend: {
-      fontFamily: {
-        raleway: ['Raleway', 'sans-serif'],
-        opensans: ['Open Sans', 'sans-serif'],
-      },
-      fontSize: {
-        '5.5xl': '3.5rem',
-        '7xl': '5rem',
-        '8xl': '7rem',
-        '9xl': '9rem',
-        '10xl': '11rem',
-      },
-      margin: {
-        '28': '7rem',
-      },
-    },
-    aspectRatio: {
-      '16/9': [16, 9],
-    },
-  },
-  variants: {},
+  content: ['./index.html', './src/**/*.{vue,ts}'],
+  // theme: {
+  //   extend: {
+  //     // here's how to extend fonts if needed
+  //     fontFamily: {
+  //       sans: [...defaultTheme.fontFamily.sans],
+  //     },
+  //   },
+  // },
   plugins: [
-    require('tailwindcss-aspect-ratio'),
-    require('@tailwindcss/custom-forms'),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    plugin(function ({ addVariant, e, postcss }) {
+      addVariant('firefox', ({ container, separator }) => {
+        const isFirefoxRule = postcss.atRule({
+          name: '-moz-document',
+          params: 'url-prefix()',
+        })
+        isFirefoxRule.append(container.nodes)
+        container.append(isFirefoxRule)
+        isFirefoxRule.walkRules((rule) => {
+          rule.selector = `.${e(`firefox${separator}${rule.selector.slice(1)}`)}`
+        })
+      })
+    }),
   ],
 }
