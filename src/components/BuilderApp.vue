@@ -1,74 +1,64 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { Layer } from '@/types'
+
 import html2canvas from 'html2canvas'
 import LayerContainer from './LayerContainer.vue'
 import BgLayer from './BgLayer.vue'
-import pkg from '../../package.json'
 
 import '@/assets/all.css'
 
-export default defineComponent({
-  components: {
-    BgLayer,
-    LayerContainer,
-  },
-  data() {
-    return {
-      version: pkg.version,
-      bgURL: '',
-      bgStyles: {},
-      layers: [
-        {
-          id: 0,
-          visible: true,
-          name: 'Text layer 1',
-          html: 'OG:Image Builder',
-          css: 'flex items-center justify-center text-5.5xl h-full font-raleway font-black text-white uppercase -m-8',
-        },
-        {
-          id: 1,
-          visible: true,
-          name: 'Text layer 2',
-          html: 'Add background from <b>Unsplash</b>,<br>style with <b>Tailwind</b> CSS 🎉',
-          css: 'absolute inset-x-0 bottom-0 text-3xl font-opensans font-bold text-center text-white mb-20',
-        },
-        {
-          id: 2,
-          visible: false,
-          name: 'Text layer 3',
-          html: '<i class="fab fa-vuejs fa-10x"></i>',
-          css: 'text-green-500 flex items-center justify-center h-full text-2xl',
-        },
-      ],
-    }
-  },
+const thisYear = new Date().getFullYear()
+const version = import.meta.env.VITE_APP_VERSION
 
-  methods: {
-    downloadPng() {
-      // Note: html2canvas has some serious limitations in rendering and it should not
-      // be used as a main rendering tool. It does, however, work in basic situations.
-      const cardHolder = document.getElementById('cardholder')
-      if (cardHolder) {
-        html2canvas(cardHolder, {
-          allowTaint: true,
-          useCORS: true,
-        }).then(function (canvas) {
-          const image = canvas
-            .toDataURL('image/png', 1.0)
-            .replace('image/png', 'image/octet-stream')
-          let link = document.createElement('a')
-          link.download = 'social-card.png'
-          link.href = image
-          link.click()
-        })
-      }
-    },
+const bgURL = ref('')
+const bgStyles = ref({})
+const layers = ref<Layer[]>([])
 
-    changeBgStyles(styleObj: any) {
-      this.bgStyles = styleObj
-    },
+layers.value = [
+  {
+    id: 0,
+    visible: true,
+    name: 'Text layer 1',
+    html: 'OG:Image Builder',
+    css: 'flex items-center justify-center text-5.5xl h-full font-raleway font-black text-white uppercase -m-8',
   },
-})
+  {
+    id: 1,
+    visible: true,
+    name: 'Text layer 2',
+    html: 'Add background from <b>Unsplash</b>,<br>style with <b>Tailwind</b> CSS 🎉',
+    css: 'absolute inset-x-0 bottom-0 text-3xl font-opensans font-bold text-center text-white mb-20',
+  },
+  {
+    id: 2,
+    visible: false,
+    name: 'Text layer 3',
+    html: '<i class="fab fa-vuejs fa-10x"></i>',
+    css: 'text-green-500 flex items-center justify-center h-full text-2xl',
+  },
+]
+
+function downloadPng() {
+  // Note: html2canvas has some serious limitations in rendering and it should not
+  // be used as a main rendering tool. It does, however, work in basic situations.
+  const cardHolder = document.getElementById('cardholder')
+  if (cardHolder) {
+    html2canvas(cardHolder, {
+      allowTaint: true,
+      useCORS: true,
+    }).then(function (canvas) {
+      const image = canvas.toDataURL('image/png', 1.0).replace('image/png', 'image/octet-stream')
+      let link = document.createElement('a')
+      link.download = 'social-card.png'
+      link.href = image
+      link.click()
+    })
+  }
+}
+
+function changeBgStyles(styleObj: any) {
+  bgStyles.value = styleObj
+}
 </script>
 
 <template>
@@ -135,24 +125,23 @@ export default defineComponent({
     </p>
 
     <p class="p-4 bg-red-300 sm:hidden">
-      <strong>Dear mobile user:</strong> please note that while this app technically scales and
-      works with mobile devices, it doesn't quite work with smallest screens. YMMV.
+      <strong>Warning:</strong> this app isn't designed to work with small screens. YMMV.
     </p>
 
     <div class="max-w-2xl mx-auto mt-4 mb-4 border border-gray-600">
       <div
         id="cardholder"
         class="relative flex items-stretch flex-1 overflow-hidden aspect-ratio-16/9 m-h-64"
-        v-bind:style="bgStyles"
+        :style="bgStyles"
       >
         <div v-for="layer in layers" :key="layer.name" class="absolute w-full h-full">
-          <div v-if="layer.visible" v-html="layer.html" :class="layer.css"></div>
+          <div v-if="layer.visible" :class="layer.css" v-html="layer.html"></div>
         </div>
       </div>
     </div>
 
     <layer-container class="p-4 mt-4 border border-gray-400 rounded"
-      ><bg-layer v-on:stylechange="changeBgStyles"></bg-layer>
+      ><bg-layer @stylechange="changeBgStyles"></bg-layer>
     </layer-container>
 
     <layer-container
@@ -170,7 +159,7 @@ export default defineComponent({
       >
       &copy; <strong> Ville Säävuori</strong> (<strong
         ><a href="https://twitter.com/uninen" class="text-blue-700 underline">@uninen</a></strong
-      >), 2020.
+      >), {{ thisYear }}.
       <a href="https://github.com/Uninen/og-image-builder" class="text-blue-700 underline"
         >Source available on GitHub</a
       >.
