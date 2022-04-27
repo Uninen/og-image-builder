@@ -5,6 +5,8 @@ import LayerContainer from './LayerContainer.vue'
 import BgLayer from './BgLayer.vue'
 import pkg from '../../package.json'
 
+import '@/assets/all.css'
+
 export default defineComponent({
   components: {
     BgLayer,
@@ -54,7 +56,7 @@ export default defineComponent({
           const image = canvas
             .toDataURL('image/png', 1.0)
             .replace('image/png', 'image/octet-stream')
-          var link = document.createElement('a')
+          let link = document.createElement('a')
           link.download = 'social-card.png'
           link.href = image
           link.click()

@@ -1,13 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Home from '@/pages/Home.vue'
+import HomePage from '@/pages/HomePage.vue'
+import StyleguidePage from '@/pages/StyleguidePage.vue'
 
 const routes = [
   {
     path: '/',
-    component: Home,
+    component: HomePage,
     meta: {
       title: 'Open Graph Image Builder',
+    },
+  },
+  {
+    path: '/styleguide/',
+    component: StyleguidePage,
+    meta: {
+      title: 'Style Guide',
     },
   },
 ]

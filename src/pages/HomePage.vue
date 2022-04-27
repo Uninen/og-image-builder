@@ -4,6 +4,6 @@ import BuilderApp from '@/components/BuilderApp.vue'
 
 <template>
   <div class="mb-8">
-    <builder-app></builder-app>
+    <builder-app />
   </div>
 </template>
