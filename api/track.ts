@@ -6,10 +6,10 @@ module.exports = (req, res) => {
   axios
     .get(`https://api.unsplash.com/photos/${photo}/download`, {
       headers: {
-        Authorization: `Client-ID ${process.env.GRIDSOME_UNSPLASH_ACCESS_KEY}`,
+        Authorization: `Client-ID ${process.env.VITE_UNSPLASH_ACCESS_KEY}`,
       },
     })
-    .then(function() {
+    .then(function () {
       res.status(200).json({ success: true })
     })
 }

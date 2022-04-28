@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
-/dist
+dist
+dist-ssr
 
 /tests/e2e/videos/
 /tests/e2e/screenshots/
@@ -28,4 +29,6 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-.now
+*.local
+LOCAL_NOTES.md
+.vercel

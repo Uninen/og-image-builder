@@ -1,19 +1,15 @@
+<script setup lang="ts">
+import TextLayer from '@/components/TextLayer.vue'
+
+defineProps<{
+  layerId?: number
+}>()
+</script>
+
 <template>
-  <div class="mt-4 p-4 rounded border border-gray-400">
+  <div class="p-4 mt-4 border border-gray-400 rounded">
     <slot>
-      <text-layer :layer="layer"></text-layer>
+      <text-layer v-if="layerId" :layer-id="layerId"></text-layer>
     </slot>
   </div>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue'
-import TextLayer from './TextLayer.vue'
-
-export default defineComponent({
-  name: 'ImageLayer',
-  props: ['layer'],
-  components: {
-    TextLayer,
-  },
-})
-</script>

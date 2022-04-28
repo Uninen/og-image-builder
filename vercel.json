@@ -1,8 +1,4 @@
 {
-  "env": {
-    "GRIDSOME_UNSPLASH_ACCESS_KEY": "@unsplash-access-key",
-    "GRIDSOME_GOOGLE_ANALYTICS_ID": "@og-image-builder-analytics"
-  },
   "headers": [
     {
       "source": "/(.*)",

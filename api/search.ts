@@ -12,10 +12,10 @@ module.exports = (req, res) => {
         per_page: 15,
       },
       headers: {
-        Authorization: `Client-ID ${process.env.GRIDSOME_UNSPLASH_ACCESS_KEY}`,
+        Authorization: `Client-ID ${process.env.VITE_UNSPLASH_ACCESS_KEY}`,
       },
     })
-    .then(function(response) {
+    .then(function (response) {
       res.status(200).json(response.data)
     })
 }

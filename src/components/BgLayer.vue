@@ -1,3 +1,86 @@
+<script setup lang="ts">
+import { nextTick } from 'vue'
+import UnsplashSearch from './UnsplashSearch.vue'
+import { BgStyle, UnsplashImage } from '@/types'
+
+const emit = defineEmits(['stylechange'])
+
+const UTM_PARAMS = '?utm_source=Open%20Graph%20Image%20Builder&utm_medium=referral'
+const useImage = ref(true)
+const styles = ref<BgStyle>({
+  background: '',
+  backgroundImage: '',
+  backgroundSize: '',
+})
+const url = ref(
+  'https://images.unsplash.com/photo-1502679726485-931beda67f88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMzEyNH0&auto=format&fit=crop&w=1280&h=720&q=85'
+)
+const color = ref('#FFFFFF')
+const searchOpen = ref(false)
+const unsplashImage = ref<Partial<UnsplashImage>>({
+  author: 'Melanie Magdalena',
+  authorUrl: 'https://unsplash.com/@m2creates' + UTM_PARAMS,
+  unsplashUrl: 'https://unsplash.com/' + UTM_PARAMS,
+})
+
+const imageIsUnsplash = computed(() => {
+  return url.value.startsWith('https://images.unsplash.com/')
+})
+
+function selectPhoto(payload: UnsplashImage) {
+  unsplashImage.value = {
+    author: payload.user.name,
+    authorUrl: payload.user.links.html + UTM_PARAMS,
+    unsplashUrl: 'https://unsplash.com/' + UTM_PARAMS,
+  }
+  url.value = payload.urls.raw + '&auto=format&fit=crop&w=1280&h=720&q=85'
+  closeSearchWindow()
+}
+
+function closeSearchWindow() {
+  searchOpen.value = false
+  document.body.classList.remove('overflow-hidden')
+}
+
+function openSearchWindow() {
+  searchOpen.value = true
+  // Prevent underlying page scroll when the search window is open
+  window.scrollTo({ top: 0 })
+  document.body.classList.add('overflow-hidden')
+
+  nextTick(() => {
+    document.getElementById('searchinput')?.focus()
+  })
+}
+
+function calculateStyles() {
+  const obj: BgStyle = {
+    background: '',
+    backgroundImage: '',
+    backgroundSize: '',
+  }
+  obj.background = color.value
+  if (url.value !== '' && useImage.value) {
+    obj.backgroundImage = `url(${url.value})`
+    obj.backgroundSize = 'cover'
+  }
+  styles.value = obj
+  emit('stylechange', obj)
+}
+
+watch(url, () => {
+  calculateStyles()
+})
+
+watch(color, () => {
+  calculateStyles()
+})
+
+onMounted(() => {
+  calculateStyles()
+})
+</script>
+
 <template>
   <div>
     <div class="block">
@@ -15,129 +98,28 @@
 
     <label class="block mt-4">
       <span class="font-bold text-gray-700">Image URL</span>
-      <div class="text-sm text-gray-600" v-if="imageIsUnsplash">
+      <div v-if="imageIsUnsplash" class="text-sm text-gray-600">
         Currently selected photo by
-        <a
-          class="text-gray-700 underline"
-          :href="unsplashImage.authorUrl"
-          target="_blank"
+        <a class="text-gray-700 underline" :href="unsplashImage.authorUrl" target="_blank"
           >{{ unsplashImage.author }} <i class="far fa-external-link-alt"></i
         ></a>
         on
-        <a
-          class="text-gray-700 underline"
-          :href="unsplashImage.unsplashUrl"
-          target="_blank"
+        <a class="text-gray-700 underline" :href="unsplashImage.unsplashUrl" target="_blank"
           >Unsplash <i class="far fa-external-link-alt"></i></a
         >.
       </div>
-      <input class="block w-full mt-1 form-input" v-model="url" />
+      <input v-model="url" class="block w-full mt-1 form-input" />
     </label>
 
     <label class="block mt-4">
       <span class="font-bold text-gray-700">BG Color</span>
-      <input
-        type="color"
-        class="block w-full mt-1 form-input"
-        v-model="color"
-      />
+      <input v-model="color" type="color" class="block w-full mt-1 form-input" />
     </label>
 
     <unsplash-search
       v-if="searchOpen"
-      v-on:photo-selected="selectPhoto"
-      v-on:close-window="closeSearchWindow"
+      @photo-selected="selectPhoto"
+      @close-window="closeSearchWindow"
     ></unsplash-search>
   </div>
 </template>
-<script lang="ts">
-import { defineComponent, nextTick } from 'vue'
-import UnsplashSearch from './UnsplashSearch.vue'
-
-const UTM_PARAMS =
-  '?utm_source=Open%20Graph%20Image%20Builder&utm_medium=referral'
-
-export default defineComponent({
-  components: {
-    UnsplashSearch,
-  },
-  data() {
-    return {
-      useImage: true,
-      url:
-        'https://images.unsplash.com/photo-1502679726485-931beda67f88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMzEyNH0&auto=format&fit=crop&w=1280&h=720&q=85',
-      styles: '' as string | unknown,
-      color: '#FFFFFF',
-      searchOpen: false,
-      unsplashImage: {
-        author: 'Melanie Magdalena',
-        authorUrl: 'https://unsplash.com/@m2creates' + UTM_PARAMS,
-        unsplashUrl: 'https://unsplash.com/' + UTM_PARAMS,
-      },
-    }
-  },
-  computed: {
-    imageIsUnsplash() {
-      // @ts-ignore
-      return this.url.startsWith('https://images.unsplash.com/')
-    },
-  },
-  methods: {
-    selectPhoto(payload: any) {
-      this.unsplashImage = {
-        author: payload.user.name,
-        authorUrl: payload.user.links.html + UTM_PARAMS,
-        unsplashUrl: 'https://unsplash.com/' + UTM_PARAMS,
-      }
-      this.url = payload.urls.raw + '&auto=format&fit=crop&w=1280&h=720&q=85'
-      this.closeSearchWindow()
-    },
-
-    closeSearchWindow() {
-      this.searchOpen = false
-      const body = document.body
-      body.classList.remove('overflow-hidden')
-    },
-
-    openSearchWindow() {
-      this.searchOpen = true
-      // Prevent underlying page scroll when the search window is open
-      window.scrollTo({ top: 0 })
-      const body = document.body
-      body.classList.add('overflow-hidden')
-
-      nextTick(function() {
-        document.getElementById('searchinput')?.focus()
-      })
-    },
-
-    calculateStyles() {
-      const obj = {
-        background: '',
-        backgroundImage: '',
-        backgroundSize: '',
-      }
-      obj.background = this.color
-      if (this.url !== '' && this.useImage) {
-        obj.backgroundImage = `url(${this.url})`
-        obj.backgroundSize = 'cover'
-      }
-      this.styles = obj
-      this.$emit('stylechange', obj)
-    },
-  },
-  watch: {
-    url() {
-      this.calculateStyles()
-    },
-
-    color() {
-      this.calculateStyles()
-    },
-  },
-
-  mounted() {
-    this.calculateStyles()
-  },
-})
-</script>

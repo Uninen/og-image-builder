@@ -1,5 +1,10 @@
 # Changes
 
+## 2022-04-28 - v0.4.0
+
+- **Full rewrite**: another full rewrite, this time from Vue CLI to Vite.
+- **Chore:** upgraded all deps.
+
 ## 2020-02-11 - v0.3.0
 
 - **Full rewrite**: converted project from Vue 2 to Vue 3 and from Gridsome to Vue CLI. Also converted from JavaScript to TypeScript.
