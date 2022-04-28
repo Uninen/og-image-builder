@@ -54,7 +54,7 @@ function changeBgStyles(styleObj: BgStyle) {
 
         <span class="text-right"
           ><a
-            href="https://tailwindcss.com/docs/utility-first"
+            href="https://tailwindcss.com/docs/customizing-colors"
             class="text-blue-800 text-md hover:underline"
             target="_blank"
             >Tailwind <i class="fas fa-external-link-alt"></i></a
@@ -87,9 +87,7 @@ function changeBgStyles(styleObj: BgStyle) {
       <span class="font-semibold">an experimental demo project</span> for making Open Graph images
       for your blog or a Web site with a
       <span class="font-semibold">serverless backend and JAMstack front</span>.
-      <a
-        href="https://hoyci.unessa.net/2020/01/og-image-builder-part-1/"
-        class="text-blue-800 underline"
+      <a href="https://hoyci.unessa.net/2020/01/open-graph-tool/" class="text-blue-800 underline"
         >Read more about it</a
       >.
     </p>
