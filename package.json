@@ -14,6 +14,8 @@
     "axios": "^0.27.2",
     "html2canvas": "^1.4.1",
     "lodash-es": "^4.17.21",
+    "pinia": "^2.0.13",
+    "rambda": "^7.0.3",
     "vue": "~3.2",
     "vue-router": "~4.0"
   },

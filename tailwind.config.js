@@ -17,9 +17,6 @@ module.exports = {
         28: '7rem',
       },
     },
-    aspectRatio: {
-      '16/9': [16, 9],
-    },
   },
   plugins: [require('@tailwindcss/aspect-ratio'), require('@tailwindcss/forms')],
 }

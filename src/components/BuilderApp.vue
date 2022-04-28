@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Layer } from '@/types'
+import { BgStyle } from '@/types'
 
 import html2canvas from 'html2canvas'
 import LayerContainer from './LayerContainer.vue'
@@ -7,36 +7,13 @@ import BgLayer from './BgLayer.vue'
 
 import '@/assets/all.css'
 
+const store = useStore()
+
 const thisYear = new Date().getFullYear()
 const version = import.meta.env.VITE_APP_VERSION
 
-const bgURL = ref('')
-const bgStyles = ref({})
-const layers = ref<Layer[]>([])
-
-layers.value = [
-  {
-    id: 0,
-    visible: true,
-    name: 'Text layer 1',
-    html: 'OG:Image Builder',
-    css: 'flex items-center justify-center text-5.5xl h-full font-raleway font-black text-white uppercase -m-8',
-  },
-  {
-    id: 1,
-    visible: true,
-    name: 'Text layer 2',
-    html: 'Add background from <b>Unsplash</b>,<br>style with <b>Tailwind</b> CSS 🎉',
-    css: 'absolute inset-x-0 bottom-0 text-3xl font-opensans font-bold text-center text-white mb-20',
-  },
-  {
-    id: 2,
-    visible: false,
-    name: 'Text layer 3',
-    html: '<i class="fab fa-vuejs fa-10x"></i>',
-    css: 'text-green-500 flex items-center justify-center h-full text-2xl',
-  },
-]
+const bgStyles = ref<BgStyle>()
+const layers = computed(() => store.layers)
 
 function downloadPng() {
   // Note: html2canvas has some serious limitations in rendering and it should not
@@ -56,7 +33,7 @@ function downloadPng() {
   }
 }
 
-function changeBgStyles(styleObj: any) {
+function changeBgStyles(styleObj: BgStyle) {
   bgStyles.value = styleObj
 }
 </script>
@@ -131,7 +108,7 @@ function changeBgStyles(styleObj: any) {
     <div class="max-w-2xl mx-auto mt-4 mb-4 border border-gray-600">
       <div
         id="cardholder"
-        class="relative flex items-stretch flex-1 overflow-hidden aspect-ratio-16/9 m-h-64"
+        class="relative flex items-stretch flex-1 overflow-hidden aspect-w-16 aspect-h-9 min-h-[16rem]"
         :style="bgStyles"
       >
         <div v-for="layer in layers" :key="layer.name" class="absolute w-full h-full">
@@ -148,9 +125,8 @@ function changeBgStyles(styleObj: any) {
       v-for="layer in layers"
       :key="layer.id"
       class="p-4 mt-4 border border-gray-400 rounded"
-      :layer="layer"
-    >
-    </layer-container>
+      :layer-id="layer.id"
+    />
 
     <p class="pt-16 pb-8 text-lg text-center">
       Open Graph Image Builder

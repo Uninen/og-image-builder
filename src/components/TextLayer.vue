@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { Layer } from '@/types'
-
-defineProps<{
-  layer: Layer
+const props = defineProps<{
+  layerId: number
 }>()
+
+const store = useStore()
+const layer = computed(() => store.getLayerById(props.layerId))
 </script>
 
 <template>
-  <div>
+  <div v-if="layer">
     <div class="block">
       <div class="mt-2">
         <div>
