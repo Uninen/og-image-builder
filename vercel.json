@@ -1,7 +1,4 @@
 {
-  "env": {
-    "VITE_UNSPLASH_ACCESS_KEY": "@unsplash-access-key"
-  },
   "headers": [
     {
       "source": "/(.*)",

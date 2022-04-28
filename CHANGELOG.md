@@ -1,6 +1,6 @@
 # Changes
 
-## 2022-04-27 - v0.4.0
+## 2022-04-28 - v0.4.0
 
 - **Full rewrite**: another full rewrite, this time from Vue CLI to Vite.
 - **Chore:** upgraded all deps.

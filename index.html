@@ -13,7 +13,30 @@
       data-domain="og-image-builder.vercel.app"
       src="https://plausible.io/js/plausible.js"
     ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Open Graph Image Builder</title>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              raleway: ['Raleway', 'sans-serif'],
+              opensans: ['Open Sans', 'sans-serif'],
+            },
+            fontSize: {
+              '5.5xl': '3.5rem',
+              '7xl': '5rem',
+              '8xl': '7rem',
+              '9xl': '9rem',
+              '10xl': '11rem',
+            },
+            margin: {
+              28: '7rem',
+            },
+          },
+        },
+      }
+    </script>
   </head>
   <body>
     <div id="app"></div>
