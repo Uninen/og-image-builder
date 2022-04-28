@@ -13,7 +13,20 @@ export interface BgStyle {
 }
 
 export interface UnsplashImage {
+  id: string
   author: string
   authorUrl: string
   unsplashUrl: string
+  user: {
+    name: string
+    links: {
+      html: string
+    }
+  }
+  urls: {
+    thumb: string
+    raw: string
+  }
+  alt_description: string
+  description: string
 }

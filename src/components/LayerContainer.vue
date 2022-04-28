@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Layer } from '@/types'
 import TextLayer from '@/components/TextLayer.vue'
 
 defineProps<{

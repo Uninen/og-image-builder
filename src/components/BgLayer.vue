@@ -17,7 +17,7 @@ const url = ref(
 )
 const color = ref('#FFFFFF')
 const searchOpen = ref(false)
-const unsplashImage = ref<UnsplashImage>({
+const unsplashImage = ref<Partial<UnsplashImage>>({
   author: 'Melanie Magdalena',
   authorUrl: 'https://unsplash.com/@m2creates' + UTM_PARAMS,
   unsplashUrl: 'https://unsplash.com/' + UTM_PARAMS,
@@ -27,7 +27,7 @@ const imageIsUnsplash = computed(() => {
   return url.value.startsWith('https://images.unsplash.com/')
 })
 
-function selectPhoto(payload: any) {
+function selectPhoto(payload: UnsplashImage) {
   unsplashImage.value = {
     author: payload.user.name,
     authorUrl: payload.user.links.html + UTM_PARAMS,
